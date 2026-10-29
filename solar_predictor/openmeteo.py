@@ -37,12 +37,8 @@ def fetch_sarah3_radiation(
     df = pd.DataFrame(response.json()["hourly"]).rename(columns={"time": "timestamp"})
     df = df.sort_values(by="timestamp")
 
-    return df
-
-
-def transform_sarah3_df(df: pd.DataFrame) -> pd.DataFrame:
-    df = df.copy()
     df["datetime"] = pd.to_datetime(df["timestamp"], unit="s", utc=True)
+
     return df
 
 

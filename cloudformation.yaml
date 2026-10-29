@@ -57,7 +57,7 @@ Resources:
       Role: !GetAtt FetchDataFunctionRole.Arn
       Handler: solar_predictor.handlers.fetch_data.lambda_handler
       Runtime: python3.14
-      Timeout: 600
+      Timeout: 60
       MemorySize: 512
       Environment:
         Variables:

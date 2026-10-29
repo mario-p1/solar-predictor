@@ -5,7 +5,7 @@ import pandas as pd
 from solar_predictor import openmeteo, storage
 from solar_predictor.utils import get_current_utc_date
 
-DEFAULT_START_DATE = "2025-01-01"
+DEFAULT_START_DATE = "1983-01-01"
 
 
 def resolve_start_date(location_prefix: str) -> str:
@@ -30,7 +30,6 @@ def lambda_handler(event: dict, context: Any):
         return {"statusCode": 200, "result": "No new data to fetch."}
 
     df = openmeteo.fetch_sarah3_radiation(lat, long, start_date, end_date)
-    df = openmeteo.transform_sarah3_df(df)
 
     if df.empty:
         return {"statusCode": 200, "result": "No data returned."}
