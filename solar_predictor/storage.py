@@ -53,3 +53,15 @@ def write_csv(file_key: str, df: pd.DataFrame, index: bool = True):
 def read_csv(file_key: str):
     obj = s3.get_object(Bucket=data_bucket, Key=file_key)
     return pd.read_csv(obj["Body"])
+
+
+def find_files_at_loc(at_location_prefix: str, filename_end: str) -> list[str]:
+    paginator = s3.get_paginator("list_objects_v2")
+    keys = [
+        obj["Key"]
+        for page in paginator.paginate(Bucket=data_bucket, Prefix=at_location_prefix)
+        for obj in page.get("Contents", [])
+        if obj["Key"].endswith(filename_end)
+    ]
+
+    return sorted(keys)

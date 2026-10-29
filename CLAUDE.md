@@ -12,3 +12,6 @@ The host `.venv` doesn't work in the sandbox. Before running any `uv` or `make` 
 ```bash
 export UV_PROJECT_ENVIRONMENT=/home/agent/.venvs/predict_crypto_aws
 ```
+
+# Notebook
+Before editing a notebook cell, always reread the notebook to fetch the latest changes.
