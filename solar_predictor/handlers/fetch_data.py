@@ -5,7 +5,7 @@ import pandas as pd
 from solar_predictor import openmeteo, storage
 from solar_predictor.utils import get_current_utc_date
 
-DEFAULT_START_DATE = "1983-01-01"
+DEFAULT_START_DATE = "1990-01-01"
 
 
 def resolve_start_date(location_prefix: str) -> str:
