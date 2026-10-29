@@ -1,8 +1,6 @@
 import pandas as pd
 import requests
 
-from solar_predictor.utils import get_current_utc_date
-
 BASE_URL = "https://satellite-api.open-meteo.com/v1/archive"
 VARIABLES = [
     "shortwave_radiation",
@@ -11,10 +9,6 @@ VARIABLES = [
     "direct_normal_irradiance",
 ]
 SARAH3_ENTRIES_PER_DAY = 24 * 2  # every 30 minutes
-
-
-def calculate_sarah3_last_available_date() -> str:
-    return get_current_utc_date().strftime("%Y-%m-%d")
 
 
 def fetch_sarah3_radiation(

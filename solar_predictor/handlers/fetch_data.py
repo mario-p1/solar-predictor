@@ -3,6 +3,7 @@ from typing import Any
 import pandas as pd
 
 from solar_predictor import openmeteo, storage
+from solar_predictor.utils import get_current_utc_date
 
 DEFAULT_START_DATE = "2025-01-01"
 
@@ -23,7 +24,7 @@ def lambda_handler(event: dict, context: Any):
     location_prefix = storage.get_location_prefix(lat, long)
 
     start_date = event.get("start_date") or resolve_start_date(location_prefix)
-    end_date = event.get("end_date") or openmeteo.calculate_sarah3_last_available_date()
+    end_date = event.get("end_date") or get_current_utc_date().strftime("%Y-%m-%d")
 
     if start_date > end_date:
         return {"statusCode": 200, "result": "No new data to fetch."}
