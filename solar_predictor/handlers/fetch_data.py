@@ -44,7 +44,9 @@ def lambda_handler(event: dict, context: Any):
 
         file_key = storage.get_year_sarah3_file_key(location_prefix, year)
         if storage.file_exists(storage.data_bucket, file_key):
-            df_year = pd.concat([storage.read_csv(file_key), df_year])
+            df_old = storage.read_csv(file_key)
+            df_old["datetime"] = pd.to_datetime(df_old["datetime"], utc=True)
+            df_year = pd.concat([df_old, df_year])
             df_year = df_year.sort_values(by="timestamp")
             df_year = df_year.drop_duplicates("timestamp", keep="last")
 
