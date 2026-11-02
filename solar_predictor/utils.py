@@ -4,6 +4,37 @@ from datetime import UTC, datetime
 
 LOCATIONS = {"SKOPJE": {"LAT": "42.00", "LONG": "21.43"}}
 
+MONTHS = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+]
+DATETIME_FORMAT = "%Y-%m-%d %H:%M"
+
+SEASONS = {
+    1: "Winter",
+    2: "Winter",
+    3: "Spring",
+    4: "Spring",
+    5: "Spring",
+    6: "Summer",
+    7: "Summer",
+    8: "Summer",
+    9: "Autumn",
+    10: "Autumn",
+    11: "Autumn",
+    12: "Winter",
+}
+
 
 def timestamp_to_str(ts: int) -> str:
     return datetime.fromtimestamp(ts, tz=UTC).strftime("%Y-%m-%d %H:%M:%S")
