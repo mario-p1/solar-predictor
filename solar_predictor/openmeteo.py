@@ -6,7 +6,6 @@ VARIABLES = [
     "shortwave_radiation",
     "direct_radiation",
     "diffuse_radiation",
-    "direct_normal_irradiance",
 ]
 SARAH3_ENTRIES_PER_DAY = 24 * 2  # every 30 minutes
 
