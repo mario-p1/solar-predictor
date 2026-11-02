@@ -4,8 +4,8 @@ from solar_predictor.handlers.fetch_data import lambda_handler
 
 
 def main(
-    lat: float = typer.Option(..., help="Latitude"),
-    long: float = typer.Option(..., help="Longitude"),
+    lat: str = typer.Option(..., help="Latitude"),
+    long: str = typer.Option(..., help="Longitude"),
     start_date: str | None = typer.Option(None, help="YYYY-MM-DD"),
     end_date: str | None = typer.Option(None, help="YYYY-MM-DD"),
 ):
@@ -15,7 +15,7 @@ def main(
         "start_date": start_date,
         "end_date": end_date,
     }
-    res = lambda_handler({k: v for k, v in event.items() if v is not None}, {})
+    res = lambda_handler(event, {})
     print(res)
 
 

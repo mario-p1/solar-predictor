@@ -18,8 +18,8 @@ def resolve_start_date(location_prefix: str) -> str:
 
 
 def lambda_handler(event: dict, context: Any):
-    lat = float(event["lat"])
-    long = float(event["long"])
+    lat = event["lat"]
+    long = event["long"]
 
     location_prefix = storage.get_location_prefix(lat, long)
 

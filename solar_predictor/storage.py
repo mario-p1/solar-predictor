@@ -12,7 +12,7 @@ def file_exists(bucket: str, key: str):
     return s3.list_objects_v2(Bucket=bucket, Prefix=key).get("KeyCount", 0) > 0
 
 
-def get_location_prefix(latitude: float, longitude: float):
+def get_location_prefix(latitude: str, longitude: str):
     return f"raw/lat={latitude},long={longitude}/"
 
 

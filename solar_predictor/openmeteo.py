@@ -11,8 +11,8 @@ SARAH3_ENTRIES_PER_DAY = 24 * 2  # every 30 minutes
 
 
 def fetch_sarah3_radiation(
-    latitude: float,
-    longitude: float,
+    latitude: str,
+    longitude: str,
     start_date: str,
     end_date: str,
     variables: list[str] = VARIABLES,

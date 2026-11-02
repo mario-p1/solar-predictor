@@ -2,6 +2,8 @@ import time
 from collections.abc import Callable
 from datetime import UTC, datetime
 
+LOCATIONS = {"SKOPJE": {"LAT": "42.00", "LONG": "21.43"}}
+
 
 def timestamp_to_str(ts: int) -> str:
     return datetime.fromtimestamp(ts, tz=UTC).strftime("%Y-%m-%d %H:%M:%S")
