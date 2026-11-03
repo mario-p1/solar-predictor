@@ -18,4 +18,6 @@ def calculate_metrics(
         "sse": sse,
         "mse": mse,
         "rmse": np.sqrt(mse),
+        "residual_std": residuals.std(),
+        "residual_mean": residuals.mean(),
     }
