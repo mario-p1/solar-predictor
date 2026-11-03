@@ -11,6 +11,11 @@ def calculate_metrics(
     if drop_na:
         residuals = residuals[~np.isnan(residuals)]
 
-    mean_squared_error = (residuals**2).mean()
+    sse = (residuals**2).sum()
+    mse = (residuals**2).mean()
 
-    return {"mse": mean_squared_error, "rmse": np.sqrt(mean_squared_error)}
+    return {
+        "sse": sse,
+        "mse": mse,
+        "rmse": np.sqrt(mse),
+    }

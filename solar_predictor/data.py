@@ -27,3 +27,17 @@ def read_sarah3(
 def drop_incomplete_tail(df: pd.DataFrame) -> pd.DataFrame:
     last_complete_row = df[df.notna().all(axis=1)].iloc[-1]
     return df.loc[df["timestamp"] <= last_complete_row["timestamp"]]
+
+
+def interpolate_with_lag(series: pd.Series, lag: int) -> pd.Series:
+    series = series.copy()
+
+    lagged = series.shift(lag)
+
+    while True:
+        filled = series.fillna(lagged)
+        if filled.isna().sum() == series.isna().sum():
+            break
+        series = filled
+
+    return filled
