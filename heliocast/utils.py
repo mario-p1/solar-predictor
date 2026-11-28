@@ -59,6 +59,10 @@ class _Config:
     def ENDPOINT_STACK_NAME(self) -> str:
         return os.environ["ENDPOINT_STACK_NAME"]
 
+    @property
+    def SARAH3_PREDICTOR_ENDPOINT_NAME(self) -> str:
+        return os.environ["SARAH3_PREDICTOR_ENDPOINT_NAME"]
+
 
 # Singleton config object
 config = _Config()
