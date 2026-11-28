@@ -53,7 +53,7 @@ def lambda_handler(event: dict, context: Any):
     endpoint_response = boto3.client("sagemaker-runtime").invoke_endpoint(
         EndpointName=config.SARAH3_PREDICTOR_ENDPOINT_NAME,
         ContentType="text/csv",
-        Body=features_df.to_csv(),
+        Body=features_df.to_csv(index=False),
     )
 
     inference_results = json.loads(endpoint_response["Body"].read().decode())
