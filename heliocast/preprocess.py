@@ -22,6 +22,9 @@ def main(
 
     features_df = build_tree_features(drop_incomplete_tail(df))
 
+    # Drop all NaNs
+    features_df = features_df.dropna()
+
     features_df.to_csv(output_dir / "tree_features.csv")
     print(f"Wrote {len(features_df)} rows to {output_dir}")
 

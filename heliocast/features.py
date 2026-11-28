@@ -37,7 +37,4 @@ def build_tree_features(
     )
     features_df["target"] = target
 
-    # Drop NaNs
-    features_df = features_df.dropna()
-
     return features_df
