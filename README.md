@@ -67,7 +67,7 @@ The steps below use the coordinates of Skopje (`42.00`, `21.43`) as an example.
     ```bash
     uv run \
         --env-file .env \
-        python -m scripts.run_preprocessing \
+        python -m scripts.start_preprocessing \
             --lat 42.00 \
             --long 21.43
     ```
